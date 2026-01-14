@@ -36,25 +36,71 @@ export function Footer() {
                         </div>
                     </div>
 
-                    {/* Links */}
-                    <div>
-                        <h4 className="font-bold text-slate-900 mb-4">Product</h4>
-                        <ul className="space-y-3 text-sm text-slate-600">
-                            <li><a href="#" className="hover:text-green-700 transition-colors">For Drivers</a></li>
-                            <li><a href="#" className="hover:text-green-700 transition-colors">For Carriers</a></li>
-                            <li><a href="#" className="hover:text-green-700 transition-colors">For Dispatchers</a></li>
-                            <li><a href="#" className="hover:text-green-700 transition-colors">Pricing</a></li>
-                        </ul>
-                    </div>
+                    {/* Links using MobileAccordion */}
+                    <div className="col-span-1 md:col-span-2 grid md:grid-cols-2 gap-8">
+                        {/* Product Column */}
+                        <div className="md:block">
+                            {/* Desktop Title */}
+                            <h4 className="font-bold text-slate-900 mb-4 hidden md:block">Product</h4>
 
-                    <div>
-                        <h4 className="font-bold text-slate-900 mb-4">Company</h4>
-                        <ul className="space-y-3 text-sm text-slate-600">
-                            <li><a href="#" className="hover:text-green-700 transition-colors">About Us</a></li>
-                            <li><a href="#" className="hover:text-green-700 transition-colors">Careers</a></li>
-                            <li><a href="#" className="hover:text-green-700 transition-colors">Blog</a></li>
-                            <li><a href="#" className="hover:text-green-700 transition-colors">Contact</a></li>
-                        </ul>
+                            {/* Mobile Accordion */}
+                            <details className="group md:hidden border-b border-slate-100 pb-2 mb-2">
+                                <summary className="font-bold text-slate-900 flex justify-between items-center cursor-pointer list-none">
+                                    Product
+                                    <span className="transition-transform group-open:rotate-180">
+                                        <svg className="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <ul className="space-y-3 text-sm text-slate-600 mt-3 pl-2">
+                                    <li><a href="#" className="hover:text-green-700 transition-colors">For Drivers</a></li>
+                                    <li><a href="#" className="hover:text-green-700 transition-colors">For Carriers</a></li>
+                                    <li><a href="#" className="hover:text-green-700 transition-colors">For Dispatchers</a></li>
+                                    <li><a href="#" className="hover:text-green-700 transition-colors">Pricing</a></li>
+                                </ul>
+                            </details>
+
+                            {/* Desktop List */}
+                            <ul className="space-y-3 text-sm text-slate-600 hidden md:block">
+                                <li><a href="#" className="hover:text-green-700 transition-colors">For Drivers</a></li>
+                                <li><a href="#" className="hover:text-green-700 transition-colors">For Carriers</a></li>
+                                <li><a href="#" className="hover:text-green-700 transition-colors">For Dispatchers</a></li>
+                                <li><a href="#" className="hover:text-green-700 transition-colors">Pricing</a></li>
+                            </ul>
+                        </div>
+
+                        {/* Company Column */}
+                        <div className="md:block">
+                            {/* Desktop Title */}
+                            <h4 className="font-bold text-slate-900 mb-4 hidden md:block">Company</h4>
+
+                            {/* Mobile Accordion */}
+                            <details className="group md:hidden border-b border-slate-100 pb-2">
+                                <summary className="font-bold text-slate-900 flex justify-between items-center cursor-pointer list-none">
+                                    Company
+                                    <span className="transition-transform group-open:rotate-180">
+                                        <svg className="w-4 h-4 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <ul className="space-y-3 text-sm text-slate-600 mt-3 pl-2">
+                                    <li><a href="#" className="hover:text-green-700 transition-colors">About Us</a></li>
+                                    <li><a href="#" className="hover:text-green-700 transition-colors">Careers</a></li>
+                                    <li><a href="#" className="hover:text-green-700 transition-colors">Blog</a></li>
+                                    <li><a href="#" className="hover:text-green-700 transition-colors">Contact</a></li>
+                                </ul>
+                            </details>
+
+                            {/* Desktop List */}
+                            <ul className="space-y-3 text-sm text-slate-600 hidden md:block">
+                                <li><a href="#" className="hover:text-green-700 transition-colors">About Us</a></li>
+                                <li><a href="#" className="hover:text-green-700 transition-colors">Careers</a></li>
+                                <li><a href="#" className="hover:text-green-700 transition-colors">Blog</a></li>
+                                <li><a href="#" className="hover:text-green-700 transition-colors">Contact</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 

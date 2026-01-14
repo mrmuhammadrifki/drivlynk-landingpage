@@ -29,7 +29,7 @@ export function Hero({ onJoin }: HeroProps) {
     };
 
     return (
-        <section className="relative overflow-hidden pt-20 pb-16 md:pt-32 md:pb-24 bg-white">
+        <section className="relative overflow-hidden pt-24 pb-12 md:pt-32 md:pb-24 bg-white">
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-0 right-0 w-[800px] h-[600px] bg-green-50 rounded-full blur-3xl opacity-60" />
@@ -62,7 +62,7 @@ export function Hero({ onJoin }: HeroProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="mx-auto max-w-4xl text-4xl font-bold tracking-tight text-slate-900 md:text-6xl lg:text-7xl mb-6"
+                    className="mx-auto max-w-4xl text-3xl font-bold tracking-tight text-slate-900 md:text-6xl lg:text-7xl mb-4 md:mb-6"
                 >
                     The First <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-800 to-green-600">Verified Talent</span> Ecosystem for the Trucking Industry.
                 </motion.h1>
@@ -72,7 +72,7 @@ export function Hero({ onJoin }: HeroProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="mx-auto max-w-2xl text-lg text-slate-600 md:text-xl mb-10"
+                    className="mx-auto max-w-2xl text-base text-slate-600 md:text-xl mb-8 md:mb-10 px-4"
                 >
                     Stop relying on spammy job boards. Connect with verified Drivers, Carriers, and Dispatchers in a secure, AI-powered marketplace.
                 </motion.p>
