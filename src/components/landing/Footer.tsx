@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Link } from "lucide-react"; // Using Link icon as placeholder for social links if needed, or just standard text links
+import Link from "next/link";
+import { Link as LinkIcon } from "lucide-react"; // Renamed to avoid conflict
 
 export function Footer() {
     return (
@@ -8,7 +9,7 @@ export function Footer() {
                 <div className="grid md:grid-cols-4 gap-12 mb-16">
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-2">
-                        <div className="flex items-center gap-2 mb-4">
+                        <Link href="/" className="inline-flex items-center gap-2 mb-4 hover:opacity-80 transition-opacity">
                             <Image
                                 src="/assets/logo-icon.png"
                                 alt="DrivLynk"
@@ -17,7 +18,7 @@ export function Footer() {
                                 className="w-8 h-8"
                             />
                             <span className="font-bold text-xl text-slate-900 tracking-tight">DrivLynk</span>
-                        </div>
+                        </Link>
                         <p className="text-slate-500 text-sm max-w-sm leading-relaxed mb-6">
                             The first verified professional ecosystem for the trucking industry.
                             Connecting Drivers, Carriers, and Dispatchers with trust and transparency.

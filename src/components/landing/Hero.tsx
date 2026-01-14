@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -43,15 +44,17 @@ export function Hero({ onJoin }: HeroProps) {
                     animate={{ opacity: 1, scale: 1 }}
                     className="mb-8 flex justify-center"
                 >
-                    <Image
-                        src="/assets/logo-full.png"
-                        alt="DrivLynk Logo"
-                        width={240}
-                        height={80}
-                        className="h-20 w-auto object-contain drop-shadow-sm transition-all duration-300"
-                        style={{ filter: 'none' }}
-                    // Ensuring no dark mode filters mess this up
-                    />
+                    <Link href="/">
+                        <Image
+                            src="/assets/logo-full.png"
+                            alt="DrivLynk Logo"
+                            width={240}
+                            height={80}
+                            className="h-20 w-auto object-contain drop-shadow-sm transition-all duration-300 hover:scale-105"
+                            style={{ filter: 'none' }}
+                        // Ensuring no dark mode filters mess this up
+                        />
+                    </Link>
                 </motion.div>
 
                 {/* Headline */}
