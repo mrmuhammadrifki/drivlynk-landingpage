@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { CheckCircle2, Copy, Share2, Shield, Truck, User } from "lucide-react";
 import { Button } from "@/components/ui/Button";
@@ -10,9 +11,10 @@ import { cn } from "@/lib/utils";
 
 interface DashboardViewProps {
     userRole: string;
+    onHomeClick: () => void;
 }
 
-export function DashboardView({ userRole }: DashboardViewProps) {
+export function DashboardView({ userRole, onHomeClick }: DashboardViewProps) {
     const [copied, setCopied] = useState(false);
     const referralLink = "drivlynk.com/ref/user123";
 
@@ -27,7 +29,10 @@ export function DashboardView({ userRole }: DashboardViewProps) {
             {/* Header */}
             <header className="bg-white border-b border-slate-200 py-4 shadow-sm sticky top-0 z-50">
                 <div className="container mx-auto px-4 flex justify-between items-center">
-                    <div className="flex items-center gap-2">
+                    <button
+                        onClick={onHomeClick}
+                        className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                    >
                         <Image
                             src="/assets/logo-icon.png"
                             alt="DrivLynk Icon"
@@ -37,7 +42,7 @@ export function DashboardView({ userRole }: DashboardViewProps) {
                             style={{ filter: 'none' }}
                         />
                         <span className="text-xl font-bold text-slate-900 tracking-tight hidden md:block">DrivLynk</span>
-                    </div>
+                    </button>
                     <div className="flex items-center gap-4">
                         <div className="hidden md:flex flex-col text-right">
                             <span className="text-sm font-medium text-slate-900">Guest User</span>

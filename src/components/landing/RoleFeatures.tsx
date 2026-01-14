@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Truck, Users, Briefcase } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const features = {
@@ -12,7 +13,8 @@ const features = {
         color: "text-blue-600",
         headline: "Drive on Your Terms",
         description: "Access premium routes and high-paying loads without the middleman taking a cut.",
-        points: ["Verified Loads Only", "Instant Pay", "Route Optimization", "Driver-First Community"]
+        points: ["Verified Loads Only", "Instant Pay", "Route Optimization", "Driver-First Community"],
+        image: "/assets/role-driver.png"
     },
     carrier: {
         title: "For Carriers",
@@ -20,7 +22,8 @@ const features = {
         color: "text-green-600",
         headline: "Scale Your Fleet Fast",
         description: "Find qualified, verified drivers instantly and manage your entire fleet in one dashboard.",
-        points: ["Bulk Hiring Tools", "Automated Compliance", "Asset Tracking", "Performance Analytics"]
+        points: ["Bulk Hiring Tools", "Automated Compliance", "Asset Tracking", "Performance Analytics"],
+        image: "/assets/role-carrier.png"
     },
     dispatcher: {
         title: "For Dispatchers",
@@ -28,7 +31,8 @@ const features = {
         color: "text-indigo-600",
         headline: "Dispatch Smarter",
         description: "Connect with reliable carriers and drivers. No more ghosting or fake updates.",
-        points: ["Real-Time Updates", "Unified Communication", "Smart Matching", "Digital Documentation"]
+        points: ["Real-Time Updates", "Unified Communication", "Smart Matching", "Digital Documentation"],
+        image: "/assets/role-dispatcher.png"
     }
 };
 
@@ -106,14 +110,14 @@ export function RoleFeatures() {
                                     </div>
                                 </div>
 
-                                {/* Visual Placeholder for Feature Image */}
-                                <div className="relative aspect-video rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center overflow-hidden group shadow-inner">
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-slate-100 via-white to-slate-100 opacity-80" />
-                                    <features.driver.icon className="h-24 w-24 text-slate-300 relative z-10 group-hover:scale-110 transition-transform duration-500" />
-                                    <div className="absolute bottom-6 left-6 right-6 z-10">
-                                        <div className="h-2 bg-slate-200 rounded-full w-3/4 mb-2"></div>
-                                        <div className="h-2 bg-slate-200 rounded-full w-1/2"></div>
-                                    </div>
+                                {/* Feature Image */}
+                                <div className="relative aspect-video rounded-xl bg-slate-50 border border-slate-200 overflow-hidden group shadow-lg">
+                                    <Image
+                                        src={features[activeTab].image}
+                                        alt={features[activeTab].headline}
+                                        fill
+                                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                                    />
                                 </div>
                             </motion.div>
                         </AnimatePresence>
