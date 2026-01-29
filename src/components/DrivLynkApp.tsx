@@ -4,6 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Hero } from "@/components/landing/Hero";
 import { SocialProof } from "@/components/landing/SocialProof";
+import { WhoWeAre } from "@/components/landing/WhoWeAre";
 import { AppFeatureShowcase } from "@/components/landing/AppFeatureShowcase";
 import { ProblemSolution } from "@/components/landing/ProblemSolution";
 import { RoleFeatures } from "@/components/landing/RoleFeatures";
@@ -35,9 +36,9 @@ export default function DrivLynkApp() {
                         transition={{ duration: 0.5 }}
                     >
                         <Hero onJoin={handleJoin} />
-                        <SocialProof />
-                        <AppFeatureShowcase />
+                        <WhoWeAre />
                         <ProblemSolution />
+                        <AppFeatureShowcase />
                         <RoleFeatures />
                         <FAQ />
                         <FinalCTA />

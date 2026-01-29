@@ -1,114 +1,212 @@
 "use client";
 
-import { useState } from "react";
-import { cn } from "@/lib/utils";
-
-import { Check, X } from "lucide-react";
 import { motion } from "framer-motion";
+import { AlertCircle, FileWarning, SearchX, Clock, Ban, CheckCircle2, ShieldCheck, Zap, UserCheck } from "lucide-react";
 
 export function ProblemSolution() {
-    const [view, setView] = useState<"old" | "new">("new");
     const problems = [
-        "Fake Profiles & Scams",
-        "Generic, Useless Filters",
-        "Endless Spam Calls",
-        "Hidden Fees"
+        {
+            title: "Legitimate Opportunities Are Hard to Find",
+            description: "Drivers, carriers, dispatchers, and lease-on operators rely on scattered platforms and word-of-mouth to find opportunities, making it difficult to identify what’s real and worth pursuing.",
+            icon: SearchX
+        },
+        {
+            title: "It’s Difficult to Know Who’s Real and Verified",
+            description: "Unverified profiles and unclear information make it hard to trust who you’re speaking with, leading to wasted time and uncertainty before conversations even begin.",
+            icon: ShieldCheck
+        },
+        {
+            title: "Poor-Fit Connections Waste Time",
+            description: "Unqualified outreach, unclear requirements, and mismatched expectations cause connections to fall apart before they ever move forward.",
+            icon: Clock
+        },
+        {
+            title: "Unqualified people reach out constantly",
+            description: "",
+            icon: Ban
+        },
+        {
+            title: "Trucks sit when they should be moving",
+            description: "",
+            icon: AlertCircle
+        }
     ];
 
     const solutions = [
-        "100% Verified (CDL/DOT) & AI-Vetted",
-        "Trucking-Specific Specs (Reefer, Flatbed)",
-        "Direct, Secure In-App Messaging",
-        "Transparent Pricing & No Middlemen"
+        {
+            title: "Verified profiles reduce guesswork",
+            icon: UserCheck
+        },
+        {
+            title: "Opportunity-based posts replace random DMs",
+            icon: Zap
+        },
+        {
+            title: "Clear requirements prevent poor-fit connections",
+            icon: CheckCircle2
+        },
+        {
+            title: "Role-based search gets you to the right people faster",
+            icon: SearchX // Using a different icon or reusing one if appropriate, Search is better
+        }
     ];
 
     return (
-        <section className="py-20 md:py-32 bg-slate-50">
-            <div className="container mx-auto px-4">
-                <div className="text-center mb-12 md:mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 md:mb-6">
-                        The Industry is <span className="text-red-600">Broken</span>. <br className="hidden md:block" />
-                        We Fixed It.
-                    </h2>
-                    <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto">
-                        See why thousands are switching from generic job boards to DrivLynk.
-                    </p>
-                </div>
-
-                {/* Mobile Toggle */}
-                <div className="flex justify-center mb-8 md:hidden">
-                    <div className="bg-white p-1 rounded-full border border-slate-200 shadow-sm flex items-center">
-                        <button
-                            onClick={() => setView("old")}
-                            className={cn(
-                                "px-6 py-2 rounded-full text-sm font-bold transition-all",
-                                view === "old" ? "bg-slate-100 text-slate-700 shadow-sm" : "text-slate-400 hover:text-slate-600"
-                            )}
-                        >
-                            The Old Way
-                        </button>
-                        <button
-                            onClick={() => setView("new")}
-                            className={cn(
-                                "px-6 py-2 rounded-full text-sm font-bold transition-all",
-                                view === "new" ? "bg-green-600 text-white shadow-md" : "text-slate-400 hover:text-slate-600"
-                            )}
-                        >
-                            DrivLynk
-                        </button>
-                    </div>
-                </div>
-
-                <div className="max-w-5xl mx-auto">
-                    <div className="grid md:grid-cols-2 gap-8">
-                        {/* The Old Way */}
-                        <div className={cn(
-                            "bg-white rounded-2xl p-8 border border-slate-200 shadow-sm opacity-90 transition-all duration-300",
-                            "md:block", // Always show on desktop
-                            view === "old" ? "block" : "hidden" // Toggle on mobile
-                        )}>
-                            <h3 className="text-xl font-bold text-slate-500 mb-6 flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-slate-400"></span>
-                                The Old Way
-                            </h3>
-                            <ul className="space-y-4">
-                                {problems.map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-slate-500">
-                                        <X className="h-5 w-5 text-red-500 shrink-0" />
-                                        {item}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* DrivLynk */}
+        <div className="bg-slate-50">
+            {/* NEW SECTION — PROBLEM */}
+            <section className="py-20 md:py-28 relative overflow-hidden">
+                <div className="container mx-auto px-4 relative z-10">
+                    <div className="max-w-4xl mx-auto text-center mb-16">
                         <motion.div
-                            whileHover={{ scale: 1.02 }}
-                            className={cn(
-                                "bg-white rounded-2xl p-8 border border-green-200 relative overflow-hidden shadow-xl shadow-green-900/5 ring-1 ring-green-100",
-                                "md:block", // Always show on desktop
-                                view === "new" ? "block" : "hidden" // Toggle on mobile
-                            )}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
                         >
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-green-600"></span>
-                                The DrivLynk Way
-                            </h3>
-                            <ul className="space-y-4">
-                                {solutions.map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-slate-900 font-medium">
-                                        <div className="bg-green-100 p-1 rounded-full">
-                                            <Check className="h-3 w-3 text-green-700 shrink-0" />
+                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                                The Current Problem in the <span className="text-red-600">Logistics Industry</span>
+                            </h2>
+                            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                                There’s no true home for trucking professionals to connect. <br />
+                                The issue isn’t the industry — <span className="font-semibold text-slate-900">it’s access.</span>
+                            </p>
+                        </motion.div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
+                        {problems.map((item, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className={`bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow ${item.description === "" ? "flex items-center gap-4" : "flex flex-col"}`}
+                            >
+                                <div className={`flex items-center justify-center w-12 h-12 rounded-full bg-red-50 text-red-600 mb-6 ${item.description === "" ? "mb-0 shrink-0" : ""}`}>
+                                    <item.icon className="w-6 h-6" />
+                                </div>
+                                <div>
+                                    <h3 className={`font-bold text-slate-900 ${item.description ? "text-xl mb-3" : "text-lg"}`}>
+                                        {item.title}
+                                    </h3>
+                                    {item.description && (
+                                        <p className="text-slate-600 leading-relaxed">
+                                            {item.description}
+                                        </p>
+                                    )}
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        className="text-center"
+                    >
+                        <p className="text-xl md:text-2xl font-serif italic text-slate-500">
+                            "Too many deals fall apart before they even start."
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+
+            {/* NEW SECTION — SOLUTION */}
+            <section className="py-20 md:py-28 bg-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-green-50/50 skew-y-3 transform origin-top-left -z-10 h-full w-full" />
+
+                <div className="container mx-auto px-4">
+                    <div className="grid lg:grid-cols-2 gap-16 items-center max-w-6xl mx-auto">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                        >
+                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                                How <span className="text-green-700">DrivLynk</span> Solves This
+                            </h2>
+                            <p className="text-xl text-slate-600 leading-relaxed mb-10">
+                                DrivLynk removes friction by organizing the industry by role, verification, and intent.
+                            </p>
+
+                            <div className="space-y-6">
+                                {solutions.map((item, index) => (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, x: -20 }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.5, delay: 0.1 + (index * 0.1) }}
+                                        className="flex items-center p-4 rounded-xl bg-green-50/50 border border-green-100"
+                                    >
+                                        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-700 mr-4 shrink-0">
+                                            {index === 3 ? <SearchX className="w-5 h-5 !rotate-90" style={{ transform: 'scaleX(-1)' }} /> : <item.icon className="w-5 h-5" />}
                                         </div>
-                                        {item}
-                                    </li>
+                                        <h3 className="text-lg md:text-xl font-bold text-slate-900">
+                                            {item.title}
+                                        </h3>
+                                    </motion.div>
                                 ))}
-                            </ul>
+                            </div>
+
+                            <div className="mt-12 pt-8 border-t border-slate-100">
+                                <p className="text-xl font-serif italic text-green-800">
+                                    "No noise. No confusion. Just real connections that make sense."
+                                </p>
+                            </div>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                            className="relative"
+                        >
+                            <div className="absolute -inset-4 bg-gradient-to-tr from-green-200 to-green-50 rounded-[2.5rem] blur-3xl opacity-60" />
+                            {/* Placeholder for a solution graphic - using CSS art or icons for now to simulate the UI preview */}
+                            <div className="relative bg-white rounded-[2.5rem] shadow-2xl p-6 md:p-8 border border-slate-100 aspect-square flex flex-col justify-center items-center overflow-hidden">
+                                <div className="absolute top-0 w-full h-full bg-[url('/assets/grid.svg')] opacity-[0.03]"></div>
+
+                                <div className="w-full max-w-sm space-y-4 relative z-10">
+                                    {/* Mock UI Elements */}
+                                    <div className="flex items-center justify-between bg-white p-4 rounded-xl shadow-lg border border-slate-100 mb-6 animate-pulse-slow">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold">JD</div>
+                                            <div>
+                                                <div className="h-2.5 w-24 bg-slate-200 rounded mb-1.5" />
+                                                <div className="h-2 w-16 bg-green-100 rounded text-xs text-green-700 px-1">Verified</div>
+                                            </div>
+                                        </div>
+                                        <div className="h-8 w-20 bg-green-600 rounded-lg" />
+                                    </div>
+
+                                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                                        <div className="flex justify-between items-center mb-3">
+                                            <div className="h-2.5 w-32 bg-slate-300 rounded" />
+                                            <div className="h-2.5 w-12 bg-slate-200 rounded" />
+                                        </div>
+                                        <div className="h-2 w-full bg-slate-200 rounded mb-2" />
+                                        <div className="h-2 w-3/4 bg-slate-200 rounded" />
+                                    </div>
+
+                                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 opacity-60">
+                                        <div className="flex justify-between items-center mb-3">
+                                            <div className="h-2.5 w-28 bg-slate-300 rounded" />
+                                            <div className="h-2.5 w-12 bg-slate-200 rounded" />
+                                        </div>
+                                        <div className="h-2 w-full bg-slate-200 rounded mb-2" />
+                                        <div className="h-2 w-2/3 bg-slate-200 rounded" />
+                                    </div>
+                                </div>
+                            </div>
                         </motion.div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
     );
 }

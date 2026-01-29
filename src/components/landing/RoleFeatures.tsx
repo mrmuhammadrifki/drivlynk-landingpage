@@ -2,51 +2,60 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Truck, Users, Briefcase } from "lucide-react";
+import { Truck, Users, Briefcase, FileSignature } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const features = {
-    driver: {
-        title: "For Drivers",
-        icon: Truck,
-        color: "text-blue-600",
-        headline: "Drive on Your Terms",
-        description: "Access premium routes and high-paying loads without the middleman taking a cut.",
-        points: ["Verified Loads Only", "Instant Pay", "Route Optimization", "Driver-First Community"],
-        image: "/assets/role-driver.png"
-    },
     carrier: {
-        title: "For Carriers",
+        title: "Carriers",
         icon: Users,
         color: "text-green-600",
         headline: "Scale Your Fleet Fast",
-        description: "Find qualified, verified drivers instantly and manage your entire fleet in one dashboard.",
-        points: ["Bulk Hiring Tools", "Automated Compliance", "Asset Tracking", "Performance Analytics"],
+        description: "Reduce downtime and keep trucks moving by instantly connecting with verified personnel.",
+        points: ["Find qualified drivers", "Connect with dispatchers", "Identify lease-on operators", "Reduce downtime"],
         image: "/assets/role-carrier.png"
     },
+    driver: {
+        title: "Drivers",
+        icon: Truck,
+        color: "text-blue-600",
+        headline: "Drive on Your Terms",
+        description: "Access legitimate driving opportunities and avoid wasted applications.",
+        points: ["Access legitimate opportunities", "Connect with real carriers", "No more dead ends", "Verified Employers"],
+        image: "/assets/role-driver.png"
+    },
     dispatcher: {
-        title: "For Dispatchers",
+        title: "Dispatchers (Independent & Agencies)",
         icon: Briefcase,
         color: "text-indigo-600",
         headline: "Dispatch Smarter",
-        description: "Connect with reliable carriers and drivers. No more ghosting or fake updates.",
-        points: ["Real-Time Updates", "Unified Communication", "Smart Matching", "Digital Documentation"],
+        description: "Connect with active carriers and find trucks to work with.",
+        points: ["Connect with active carriers", "Find trucks & operations", "Build relationships", "Consistent work"],
         image: "/assets/role-dispatcher.png"
+    },
+    lease_operator: {
+        title: "Lease-On Operators",
+        icon: FileSignature,
+        color: "text-amber-600",
+        headline: "Find the Right Program",
+        description: "Identify real lease-on opportunities and understand requirements before you commit.",
+        points: ["Identify real opportunities", "Connect with carriers", "Understand requirements", "Compare programs"],
+        image: "/assets/role-driver.png" // Using driver image as placeholder or reuse if appropriate, ideally create specific asset
     }
 };
 
 type RoleKey = keyof typeof features;
 
 export function RoleFeatures() {
-    const [activeTab, setActiveTab] = useState<RoleKey>("driver");
+    const [activeTab, setActiveTab] = useState<RoleKey>("carrier");
 
     return (
         <section className="py-16 md:py-24 bg-white">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12 md:mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 md:mb-6">
-                        Built for Every Role in Logistics
+                        Who DrivLynk Is For
                     </h2>
                     <p className="text-slate-600 max-w-2xl mx-auto">
                         Whether you're behind the wheel or behind the desk, DrivLynk powers your success.

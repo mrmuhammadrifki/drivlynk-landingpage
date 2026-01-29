@@ -15,6 +15,7 @@ interface HeroProps {
 
 export function Hero({ onJoin }: HeroProps) {
     const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
     const [role, setRole] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
@@ -64,7 +65,7 @@ export function Hero({ onJoin }: HeroProps) {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     className="mx-auto max-w-4xl text-3xl font-bold tracking-tight text-slate-900 md:text-6xl lg:text-7xl mb-4 md:mb-6"
                 >
-                    The First <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-800 to-green-600">Verified Talent</span> Ecosystem for the Trucking Industry.
+                    The one and only place to connect <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-800 to-green-600">carriers, drivers, dispatchers, and lease-on operators.</span>
                 </motion.h1>
 
                 {/* Subheadline */}
@@ -74,7 +75,7 @@ export function Hero({ onJoin }: HeroProps) {
                     transition={{ duration: 0.5, delay: 0.2 }}
                     className="mx-auto max-w-2xl text-base text-slate-600 md:text-xl mb-8 md:mb-10 px-4"
                 >
-                    Stop relying on spammy job boards. Connect with verified Drivers, Carriers, and Dispatchers in a secure, AI-powered marketplace.
+                    A logistics-only platform built to simplify real industry connections.
                 </motion.p>
 
                 {/* Registration Form & Mockup Container */}
@@ -106,6 +107,14 @@ export function Hero({ onJoin }: HeroProps) {
                                         className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-green-600"
                                     />
 
+                                    <Input
+                                        placeholder="Phone number (optional)"
+                                        type="tel"
+                                        value={phone}
+                                        onChange={(e) => setPhone(e.target.value)}
+                                        className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-green-600"
+                                    />
+
                                     <Select
                                         required
                                         value={role}
@@ -113,10 +122,12 @@ export function Hero({ onJoin }: HeroProps) {
                                         className="bg-slate-50 border-slate-200 text-slate-900"
                                     >
                                         <option value="" disabled>I am a...</option>
-                                        <option value="driver">CDL Driver</option>
-                                        <option value="owner-operator">Owner-Operator</option>
-                                        <option value="carrier">Carrier Company</option>
-                                        <option value="dispatcher">Dispatcher</option>
+                                        <option value="carrier">Carrier</option>
+                                        <option value="driver">Driver</option>
+                                        <option value="dispatcher-independent">Dispatcher (Independent)</option>
+                                        <option value="dispatch-agency">Dispatch Agency</option>
+                                        <option value="lease-operator-with-truck">Lease-On Operator (With Truck)</option>
+                                        <option value="lease-operator-without-truck">Lease-On Operator (Without Truck)</option>
                                     </Select>
 
                                     <Button
@@ -126,13 +137,13 @@ export function Hero({ onJoin }: HeroProps) {
                                         className="w-full font-bold text-base md:text-lg mt-2 bg-green-700 hover:bg-green-800 text-white shadow-lg shadow-green-700/20"
                                         isLoading={isLoading}
                                     >
-                                        Join the Waitlist <ArrowRight className="ml-2 h-5 w-5" />
+                                        Get Early Access <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
                                 </div>
 
                                 <p className="text-xs text-slate-500 mt-2 text-center flex items-center justify-center gap-1.5">
                                     <CheckCircle2 className="h-3 w-3 text-green-700" />
-                                    Join 14,000+ professionals on the list.
+                                    Join thousands of carriers, drivers, dispatchers, and lease-on operators preparing for launch.
                                 </p>
                             </form>
                         </div>
