@@ -7,30 +7,109 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
+import { Toast, ToastType } from "@/components/ui/Toast";
 import { ArrowRight, CheckCircle2, ShieldCheck, Truck } from "lucide-react";
+import { waitlistService } from "@/services/waitlist.service";
 
 interface HeroProps {
     onJoin: (role: string) => void;
 }
 
 export function Hero({ onJoin }: HeroProps) {
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [role, setRole] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    // Toast state
+    const [toast, setToast] = useState<{
+        isVisible: boolean;
+        message: string;
+        type: ToastType;
+    }>({
+        isVisible: false,
+        message: "",
+        type: "success",
+    });
+
+    const showToast = (message: string, type: ToastType) => {
+        setToast({ isVisible: true, message, type });
+    };
+
+    const hideToast = () => {
+        setToast((prev) => ({ ...prev, isVisible: false }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!email || !role) return;
+
+        // Validation
+        if (!name.trim()) {
+            showToast("Please enter your name", "error");
+            return;
+        }
+
+        if (!email.trim()) {
+            showToast("Please enter your email address", "error");
+            return;
+        }
+
+        if (!role) {
+            showToast("Please select your role", "error");
+            return;
+        }
 
         setIsLoading(true);
-        setTimeout(() => {
-            onJoin(role);
-        }, 1000);
+
+        try {
+            const response = await waitlistService.joinWaitlist({
+                name: name.trim(),
+                email: email.trim(),
+                phone_number: phone.trim() || "",
+                role: role,
+            });
+
+            if (response.success) {
+                showToast(
+                    response.message || "Successfully joined the waitlist!",
+                    "success"
+                );
+
+                // Reset form
+                setName("");
+                setEmail("");
+                setPhone("");
+                setRole("");
+
+                // Stay on page with success message
+            } else {
+                showToast(
+                    response.message || "Failed to join waitlist. Please try again.",
+                    "error"
+                );
+            }
+        } catch (error) {
+            console.error("Submission error:", error);
+            showToast(
+                "An unexpected error occurred. Please try again.",
+                "error"
+            );
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
         <section className="relative overflow-hidden pt-24 pb-12 md:pt-32 md:pb-24 bg-white">
+            {/* Toast Notification */}
+            <Toast
+                message={toast.message}
+                type={toast.type}
+                isVisible={toast.isVisible}
+                onClose={hideToast}
+            />
+
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-0 right-0 w-[800px] h-[600px] bg-green-50 rounded-full blur-3xl opacity-60" />
@@ -98,6 +177,15 @@ export function Hero({ onJoin }: HeroProps) {
                                 </div>
 
                                 <div className="flex flex-col gap-3">
+                                    <Input
+                                        placeholder="Enter your full name"
+                                        type="text"
+                                        required
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-green-600"
+                                    />
+
                                     <Input
                                         placeholder="Enter your email address"
                                         type="email"
