@@ -1,7 +1,39 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --font-sans: var(--font-inter);
+  --font-sans: "SF Pro Display", "SF Pro", system-ui, sans-serif;
 
   /* Brand Green Identity */
   --color-primary: #14532d;
@@ -32,6 +64,19 @@
   --color-destructive: #dc2626;
   --color-destructive-foreground: #ffffff;
 
+  /* Custom DrivLynk Colors */
+  --color-brand: #0FA85B;
+  --color-text-primary: #161A17;
+  --color-text-secondary: #5F6961;
+  --color-text-placeholder: #A0ABA2;
+  --color-error-800: #991B1B;
+  --color-input-bg: #F8F9F8;
+  --color-input-border-default: #DBE0DC;
+  --color-input-value: #161A17;
+  --color-button-primary-bg: #0FA85B;
+  --color-toast-success-bg: #E6F7ED;
+  --color-toast-success-border: #99DAB9;
+  --color-toast-success-text: #123826;
   --radius: 0.75rem;
 }
 

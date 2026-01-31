@@ -63,41 +63,49 @@ export function ProblemSolution() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                         >
-                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                                The Current Problem in the <span className="text-red-600">Logistics Industry</span>
+                            <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-6 leading-tight">
+                                The Current Problem in the <span className="text-error-800">Logistic Industry</span>
                             </h2>
-                            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
+                            <p className="text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto">
                                 There’s no true home for trucking professionals to connect. <br />
-                                The issue isn’t the industry — <span className="font-semibold text-slate-900">it’s access.</span>
+                                The issue isn’t the industry — <span className="font-semibold text-text-primary">it’s access.</span>
                             </p>
                         </motion.div>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-16">
-                        {problems.map((item, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className={`bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-shadow ${item.description === "" ? "flex items-center gap-4" : "flex flex-col"}`}
-                            >
-                                <div className={`flex items-center justify-center w-12 h-12 rounded-full bg-red-50 text-red-600 mb-6 ${item.description === "" ? "mb-0 shrink-0" : ""}`}>
-                                    <item.icon className="w-6 h-6" />
-                                </div>
-                                <div>
-                                    <h3 className={`font-bold text-slate-900 ${item.description ? "text-xl mb-3" : "text-lg"}`}>
-                                        {item.title}
-                                    </h3>
-                                    {item.description && (
-                                        <p className="text-slate-600 leading-relaxed">
-                                            {item.description}
-                                        </p>
-                                    )}
-                                </div>
-                            </motion.div>
-                        ))}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 max-w-6xl mx-auto mb-16">
+                        {problems.map((item, index) => {
+                            // First 3 items span 2 columns each (3 items per row on LG)
+                            // Last 2 items span 3 columns each (2 items per row on LG: 50%/50%)
+                            const colSpanClass = index >= 3 ? "lg:col-span-3" : "lg:col-span-2";
+                            const hasDescription = item.description !== "";
+
+                            return (
+                                <motion.div
+
+                                    key={index}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    className={`${colSpanClass} bg-white rounded-2xl p-8 border border-white shadow-[0px_4px_8px_0px_#161A1729] hover:shadow-lg transition-shadow ${!hasDescription ? "flex flex-row items-center justify-center gap-4 text-left" : "flex flex-col"}`}
+                                >
+                                    <div className={`flex items-center justify-center w-12 h-12 rounded-full bg-red-50 text-error-800 shrink-0 ${hasDescription ? "mb-6" : ""}`}>
+                                        <item.icon className="w-6 h-6" />
+                                    </div>
+                                    <div>
+                                        <h3 className={`font-bold text-text-primary ${hasDescription ? "text-xl mb-3" : "text-lg"}`}>
+                                            {item.title}
+                                        </h3>
+                                        {hasDescription && (
+                                            <p className="text-text-secondary leading-relaxed">
+                                                {item.description}
+                                            </p>
+                                        )}
+                                    </div>
+                                </motion.div>
+                            );
+                        })}
                     </div>
 
                     <motion.div
@@ -106,7 +114,7 @@ export function ProblemSolution() {
                         viewport={{ once: true }}
                         className="text-center"
                     >
-                        <p className="text-xl md:text-2xl font-serif italic text-slate-500">
+                        <p className="text-xl md:text-2xl font-serif italic text-text-secondary">
                             "Too many deals fall apart before they even start."
                         </p>
                     </motion.div>
@@ -125,10 +133,10 @@ export function ProblemSolution() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
                         >
-                            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-                                How <span className="text-green-700">DrivLynk</span> Solves This
+                            <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-6 leading-tight">
+                                How <span className="text-brand">DrivLynk</span> Solves This
                             </h2>
-                            <p className="text-xl text-slate-600 leading-relaxed mb-10">
+                            <p className="text-xl text-text-secondary leading-relaxed mb-10">
                                 DrivLynk removes friction by organizing the industry by role, verification, and intent.
                             </p>
 
@@ -140,12 +148,12 @@ export function ProblemSolution() {
                                         whileInView={{ opacity: 1, x: 0 }}
                                         viewport={{ once: true }}
                                         transition={{ duration: 0.5, delay: 0.1 + (index * 0.1) }}
-                                        className="flex items-center p-4 rounded-xl bg-green-50/50 border border-green-100"
+                                        className="flex items-center p-4 rounded-xl bg-toast-success-bg border border-toast-success-border"
                                     >
-                                        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-green-700 mr-4 shrink-0">
+                                        <div className="flex items-center justify-center w-10 h-10 rounded-full bg-green-100 text-brand mr-4 shrink-0">
                                             {index === 3 ? <SearchX className="w-5 h-5 !rotate-90" style={{ transform: 'scaleX(-1)' }} /> : <item.icon className="w-5 h-5" />}
                                         </div>
-                                        <h3 className="text-lg md:text-xl font-bold text-slate-900">
+                                        <h3 className="text-lg md:text-xl font-bold text-toast-success-text">
                                             {item.title}
                                         </h3>
                                     </motion.div>
@@ -153,7 +161,7 @@ export function ProblemSolution() {
                             </div>
 
                             <div className="mt-12 pt-8 border-t border-slate-100">
-                                <p className="text-xl font-serif italic text-green-800">
+                                <p className="text-xl font-serif italic text-text-secondary">
                                     "No noise. No confusion. Just real connections that make sense."
                                 </p>
                             </div>
@@ -167,8 +175,8 @@ export function ProblemSolution() {
                             className="relative"
                         >
                             <div className="absolute -inset-4 bg-gradient-to-tr from-green-200 to-green-50 rounded-[2.5rem] blur-3xl opacity-60" />
-                            {/* Placeholder for a solution graphic - using CSS art or icons for now to simulate the UI preview */}
-                            <div className="relative bg-white rounded-[2.5rem] shadow-2xl p-6 md:p-8 border border-slate-100 aspect-square flex flex-col justify-center items-center overflow-hidden">
+                            {/* Placeholder for a solution graphic */}
+                            <div className="relative bg-white rounded-[2.5rem] shadow-[0px_4px_48px_0px_#161A1733] p-6 md:p-8 border border-slate-100 aspect-square flex flex-col justify-center items-center overflow-hidden">
                                 <div className="absolute top-0 w-full h-full bg-[url('/assets/grid.svg')] opacity-[0.03]"></div>
 
                                 <div className="w-full max-w-sm space-y-4 relative z-10">

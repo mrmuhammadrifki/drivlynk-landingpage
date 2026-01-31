@@ -147,9 +147,9 @@ export function Hero({ onJoin }: HeroProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="mx-auto max-w-4xl text-3xl font-bold tracking-tight text-slate-900 md:text-6xl lg:text-7xl mb-4 md:mb-6"
+                    className="mx-auto max-w-5xl text-[40px] leading-[40px] md:text-[64px] md:leading-[64px] font-bold tracking-normal text-text-primary mb-4 md:mb-6"
                 >
-                    The platform built to connect <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-800 to-green-600">carriers, drivers, dispatchers, and lease-on operators.</span>
+                    The platform built to connect <span className="text-transparent bg-clip-text bg-[linear-gradient(270.98deg,#0FA85B_23.12%,#1F5D3F_93.64%)]">carriers, drivers, dispatchers, and lease-on operators.</span>
                 </motion.h1>
 
                 {/* Subheadline */}
@@ -157,13 +157,13 @@ export function Hero({ onJoin }: HeroProps) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="mx-auto max-w-2xl text-base text-slate-600 md:text-xl mb-8 md:mb-10 px-4"
+                    className="mx-auto max-w-2xl text-[16px] md:text-[20px] font-normal text-text-secondary mb-8 md:mb-10 px-4"
                 >
                     A logistics-only platform built to simplify real industry connections.
                 </motion.p>
 
                 {/* Registration Form & Mockup Container */}
-                <div className="mx-auto max-w-6xl mt-12 grid md:grid-cols-2 gap-12 items-center">
+                <div className="mx-auto max-w-6xl mt-30 grid md:grid-cols-2 gap-12 items-center">
 
                     {/* Form Side */}
                     <motion.div
@@ -175,9 +175,9 @@ export function Hero({ onJoin }: HeroProps) {
                         <div className="glass-panel p-2 rounded-xl md:rounded-2xl shadow-xl shadow-green-900/5 hover:shadow-green-900/10 transition-shadow">
                             <form onSubmit={handleSubmit} className="flex flex-col gap-3 p-4 md:p-6 bg-white rounded-xl border border-slate-100">
                                 <div className="text-left mb-2">
-                                    <h3 className="text-slate-900 font-bold text-lg flex items-center gap-2">
+                                    <h3 className="text-text-primary font-bold text-lg flex items-center gap-2">
                                         <Truck className="h-5 w-5 text-green-700" />
-                                        Be first to access DrivLynk
+                                        Be first to access <span className="text-brand">DrivLynk</span>
                                     </h3>
                                 </div>
 
@@ -188,7 +188,7 @@ export function Hero({ onJoin }: HeroProps) {
                                         required
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-green-600"
+                                        className="bg-input-bg border-input-border-default text-input-value placeholder:text-text-placeholder focus-visible:ring-brand"
                                     />
 
                                     <Input
@@ -197,7 +197,7 @@ export function Hero({ onJoin }: HeroProps) {
                                         required
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
-                                        className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-green-600"
+                                        className="bg-input-bg border-input-border-default text-input-value placeholder:text-text-placeholder focus-visible:ring-brand"
                                     />
 
                                     <Input
@@ -205,19 +205,19 @@ export function Hero({ onJoin }: HeroProps) {
                                         type="tel"
                                         value={phone}
                                         onChange={(e) => setPhone(e.target.value)}
-                                        className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-400 focus-visible:ring-green-600"
+                                        className="bg-input-bg border-input-border-default text-input-value placeholder:text-text-placeholder focus-visible:ring-brand"
                                     />
 
                                     <Select
                                         required
                                         value={role}
                                         onChange={(e) => setRole(e.target.value)}
-                                        className="bg-slate-50 border-slate-200 text-slate-900"
+                                        className="bg-input-bg border-input-border-default text-input-value"
                                     >
                                         <option value="" disabled>I am a...</option>
                                         <option value="carrier">Carrier</option>
                                         <option value="driver">Driver</option>
-                                        <option value="dispatcher-independent">Dispatcher (Independent)</option>
+                                        <option value="dispatcher-independent">Independent Dispatcher</option>
                                         <option value="dispatch-agency">Dispatch Agency</option>
                                         <option value="lease-operator-with-truck">Lease-On Operator (With Truck)</option>
                                         <option value="lease-operator-without-truck">Lease-On Operator (Without Truck)</option>
@@ -227,16 +227,16 @@ export function Hero({ onJoin }: HeroProps) {
                                         type="submit"
                                         variant="accent"
                                         size="lg"
-                                        className="w-full font-bold text-base md:text-lg mt-2 bg-green-700 hover:bg-green-800 text-white shadow-lg shadow-green-700/20"
+                                        className="w-full font-bold text-base md:text-lg mt-2 bg-button-primary-bg hover:opacity-90 text-white shadow-[0px_4px_8px_0px_#0FA85B7A]"
                                         isLoading={isLoading}
                                     >
                                         Join the launch list <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
                                 </div>
 
-                                <p className="text-xs text-slate-500 mt-2 font-bold text-center flex items-center justify-center gap-1.5">
-                                    <CheckCircle2 className="h-3 w-3  text-green-700" />
-                                    Be among the first carriers, drivers, dispatchers, and lease-on operators when DrivLynk launches.
+                                <p className="text-xs text-text-secondary mt-2 font-bold text-center gap-1.5">
+
+                                    Be among the first carriers, drivers, dispatchers, and lease-on operators when <span className="text-brand">DrivLynk</span>  launches.
                                 </p>
                             </form>
                         </div>
