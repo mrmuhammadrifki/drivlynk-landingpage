@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Truck, Users, Briefcase, FileSignature } from "lucide-react";
+import { Truck, Users, Briefcase, FileSignature, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
@@ -13,7 +13,7 @@ const features = {
         color: "text-green-600",
         headline: "Scale Your Fleet Fast",
         description: "Reduce downtime and keep trucks moving by instantly connecting with verified personnel.",
-        points: ["Find qualified drivers", "Connect with dispatchers", "Identify lease-on operators", "Reduce downtime"],
+        points: ["Find qualified drivers", "Connect with dispatchers", "Find lease-on operators", "Reduce downtime"],
         image: "/assets/role-carrier.png"
     },
     driver: {
@@ -50,8 +50,28 @@ type RoleKey = keyof typeof features;
 export function RoleFeatures() {
     const [activeTab, setActiveTab] = useState<RoleKey>("carrier");
 
+    useEffect(() => {
+        const handleHashChange = () => {
+            const hash = window.location.hash;
+            if (hash === "#role-carrier") setActiveTab("carrier");
+            else if (hash === "#role-driver") setActiveTab("driver");
+            else if (hash === "#role-dispatcher") setActiveTab("dispatcher");
+            else if (hash === "#role-lease-operator") setActiveTab("lease_operator");
+        };
+
+        handleHashChange(); // Check on mount
+        window.addEventListener("hashchange", handleHashChange);
+        return () => window.removeEventListener("hashchange", handleHashChange);
+    }, []);
+
     return (
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-16 md:py-24 bg-white relative">
+            {/* Anchors for scrolling */}
+            <div id="role-carrier" className="absolute -top-24 left-0" />
+            <div id="role-driver" className="absolute -top-24 left-0" />
+            <div id="role-dispatcher" className="absolute -top-24 left-0" />
+            <div id="role-lease-operator" className="absolute -top-24 left-0" />
+
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12 md:mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4 md:mb-6">
@@ -63,6 +83,12 @@ export function RoleFeatures() {
                 </div>
 
                 <div className="max-w-6xl mx-auto">
+                    {/* Swipe Indicator (Mobile Only) */}
+                    <div className="md:hidden flex items-center justify-center gap-2 text-slate-400 text-sm mb-4 animate-pulse">
+                        <span className="text-xs font-medium">Swipe to explore roles</span>
+                        <ArrowRight className="h-4 w-4" />
+                    </div>
+
                     {/* Tabs */}
                     <div className="flex justify-start md:justify-center overflow-x-auto pb-4 mb-8 md:mb-12 gap-3 px-4 md:px-0 scrollbar-hide snap-x">
                         {(Object.keys(features) as RoleKey[]).map((key) => {

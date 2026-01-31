@@ -36,24 +36,25 @@ export function FinalCTA() {
                             </div>
 
                             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-                                Ready to Drive the <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-200">Future of Trucking?</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-200"> The New Standard </span>
+                                for
+                                <br />
+                                Logistics Networking
                             </h2>
-
-                            <p className="text-lg text-green-100/80 max-w-2xl mb-10">
-                                Don't get left behind with outdated job boards and endless cold calls.
-                                Secure your handle now and be first in line when we launch.
-                            </p>
 
                             <Button
                                 onClick={scrollToTop}
                                 size="lg"
                                 className="bg-green-600 hover:bg-green-700 text-white font-bold text-lg px-8 py-6 h-auto shadow-lg shadow-green-900/50 hover:shadow-green-500/30 transition-all hover:scale-105"
                             >
-                                Join the Waitlist Now <ArrowRight className="ml-2 h-6 w-6" />
+                                Join the launch list <ArrowRight className="ml-2 h-6 w-6" />
                             </Button>
 
-                            <p className="mt-6 text-sm text-green-200/50">
+                            <p className="mt-10 text-lg text-green-100/80 max-w-2xl">
+                                Be among the first carriers, drivers, dispatchers, and lease-on operators when DrivLynk launches.
+                            </p>
+
+                            <p className="mt-4 text-sm text-green-200/50">
                                 No credit card required. Unsubscribe anytime.
                             </p>
                         </div>

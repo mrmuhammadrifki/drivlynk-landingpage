@@ -21,9 +21,7 @@ export function WhoWeAre() {
                             More than just another app. <br />
                             <span className="text-green-700">A new standard.</span>
                         </h2>
-                        <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                            DrivLynk is a dedicated professional networking platform for the trucking and logistics industry.
-                        </p>
+
                     </motion.div>
                 </div>
 

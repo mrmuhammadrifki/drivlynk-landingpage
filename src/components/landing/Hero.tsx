@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -16,6 +17,7 @@ interface HeroProps {
 }
 
 export function Hero({ onJoin }: HeroProps) {
+    const router = useRouter();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
@@ -82,12 +84,16 @@ export function Hero({ onJoin }: HeroProps) {
                 setPhone("");
                 setRole("");
 
-                // Stay on page with success message
+                // Redirect after brief delay - keep loading state true
+                setTimeout(() => {
+                    router.push("/success");
+                }, 1500);
             } else {
                 showToast(
                     response.message || "Failed to join waitlist. Please try again.",
                     "error"
                 );
+                setIsLoading(false);
             }
         } catch (error) {
             console.error("Submission error:", error);
@@ -95,7 +101,6 @@ export function Hero({ onJoin }: HeroProps) {
                 "An unexpected error occurred. Please try again.",
                 "error"
             );
-        } finally {
             setIsLoading(false);
         }
     };
@@ -144,7 +149,7 @@ export function Hero({ onJoin }: HeroProps) {
                     transition={{ duration: 0.5, delay: 0.1 }}
                     className="mx-auto max-w-4xl text-3xl font-bold tracking-tight text-slate-900 md:text-6xl lg:text-7xl mb-4 md:mb-6"
                 >
-                    The one and only place to connect <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-800 to-green-600">carriers, drivers, dispatchers, and lease-on operators.</span>
+                    The platform built to connect <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-800 to-green-600">carriers, drivers, dispatchers, and lease-on operators.</span>
                 </motion.h1>
 
                 {/* Subheadline */}
@@ -172,7 +177,7 @@ export function Hero({ onJoin }: HeroProps) {
                                 <div className="text-left mb-2">
                                     <h3 className="text-slate-900 font-bold text-lg flex items-center gap-2">
                                         <Truck className="h-5 w-5 text-green-700" />
-                                        Reserve your handle
+                                        Be first to access DrivLynk
                                     </h3>
                                 </div>
 
@@ -225,13 +230,13 @@ export function Hero({ onJoin }: HeroProps) {
                                         className="w-full font-bold text-base md:text-lg mt-2 bg-green-700 hover:bg-green-800 text-white shadow-lg shadow-green-700/20"
                                         isLoading={isLoading}
                                     >
-                                        Get Early Access <ArrowRight className="ml-2 h-5 w-5" />
+                                        Join the launch list <ArrowRight className="ml-2 h-5 w-5" />
                                     </Button>
                                 </div>
 
-                                <p className="text-xs text-slate-500 mt-2 text-center flex items-center justify-center gap-1.5">
-                                    <CheckCircle2 className="h-3 w-3 text-green-700" />
-                                    Join thousands of carriers, drivers, dispatchers, and lease-on operators preparing for launch.
+                                <p className="text-xs text-slate-500 mt-2 font-bold text-center flex items-center justify-center gap-1.5">
+                                    <CheckCircle2 className="h-3 w-3  text-green-700" />
+                                    Be among the first carriers, drivers, dispatchers, and lease-on operators when DrivLynk launches.
                                 </p>
                             </form>
                         </div>

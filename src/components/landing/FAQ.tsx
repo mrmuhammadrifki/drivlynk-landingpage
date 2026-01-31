@@ -1,31 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, HelpCircle } from "lucide-react";
 
 const faqs = [
     {
         question: "Is DrivLynk free to use?",
-        answer: "Yes! For Drivers and Owner-Operators, DrivLynk is completely free to create a profile, get verified, and search for loads or jobs. Carriers and Dispatchers will have subscription options for advanced premium features upon full launch."
+        answer: "Yes, for Drivers, DrivLynk is free to create a profile, get verified, and search for and take action on opportunities.\n\nCarriers, Dispatchers, and Lease-On Operators use subscription plans to access features like connections, messaging, and premium matching tools.\n\nThis keeps the platform accessible for drivers while giving hiring companies and operators powerful tools to connect faster and scale."
     },
     {
         question: "How does the verification process work?",
-        answer: "We prioritize safety and trust. Our verification uses real-time connection to the CDL and DOT databases to confirm your credentials. We also use a quick biometric facial scan to ensure the person behind the screen matches the ID."
+        answer: "Security comes first. DrivLynk verifies identities and company details through trusted data sources and documentation, along with biometric checks to confirm users are who they say they are."
     },
     {
         question: "When will the app be launched?",
-        answer: "We are currently in a closed beta with select partners. We plan to open access to our Waitlist members in early 2026. Join the list today to secure your handle and get early access!"
+        answer: "We’re in closed beta and plan to launch publicly in Spring 2026. Join the launch list to get early access."
     },
     {
         question: "Can I filter for local or regional routes only?",
         answer: "Absolutely. Our Power Search allows you to filter specifically for Home Daily (Local), Home Weekly (Regional), or OTR. You can also filter by equipment type like Reefer, Flatbed, or Tanker."
+    },
+    {
+        question: "What types of logistics vehicles does DrivLynk support?",
+        answer: "DrivLynk supports a broad range of equipment used across local, regional, and long-haul freight operations:\n\nBox / Straight Trucks\n• Straight Truck (Dry) — 24–26 ft\n• Reefer Straight Truck — 24–26 ft\n• Cargo Van / Sprinter\n\nTractor / Trailer\n• Dry Van — 48–53 ft\n• Reefer Trailer — 48–53 ft\n• Flatbed — 48–53 ft\n• Step Deck / Drop Deck — 48–53 ft\n• Power Only\n• Tanker\n• Car Hauler\n\nSpecialty Equipment\n• Hotshot (dually pickup with flatbed or gooseneck)"
     }
 ];
 
 export function FAQ() {
     return (
-        <section className="py-24 bg-white">
+        <section id="faq" className="py-24 bg-white">
             <div className="mx-auto max-w-4xl px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-1.5 text-sm font-medium text-green-700 border border-green-200 mb-4">
@@ -42,7 +46,12 @@ export function FAQ() {
 
                 <div className="space-y-4">
                     {faqs.map((faq, index) => (
-                        <FAQItem key={index} question={faq.question} answer={faq.answer} />
+                        <FAQItem
+                            key={index}
+                            id={index === 0 ? "faq-pricing" : undefined}
+                            question={faq.question}
+                            answer={faq.answer}
+                        />
                     ))}
                 </div>
             </div>
@@ -50,11 +59,28 @@ export function FAQ() {
     );
 }
 
-function FAQItem({ question, answer }: { question: string, answer: string }) {
+function FAQItem({ question, answer, id }: { question: string, answer: string, id?: string }) {
     const [isOpen, setIsOpen] = useState(false);
 
+    useEffect(() => {
+        if (!id) return;
+
+        const handleHashChange = () => {
+            if (window.location.hash === `#${id}`) {
+                setIsOpen(true);
+            }
+        };
+
+        // Check on mount
+        handleHashChange();
+
+        // Listen for hash changes (in case user clicks link while on page)
+        window.addEventListener("hashchange", handleHashChange);
+        return () => window.removeEventListener("hashchange", handleHashChange);
+    }, [id]);
+
     return (
-        <div className="border border-slate-200 rounded-2xl bg-slate-50 overflow-hidden transition-all duration-200 hover:border-green-200 hover:bg-green-50/30">
+        <div id={id} className="border border-slate-200 rounded-2xl bg-slate-50 overflow-hidden transition-all duration-200 hover:border-green-200 hover:bg-green-50/30">
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex w-full items-center justify-between p-6 text-left"
@@ -72,7 +98,7 @@ function FAQItem({ question, answer }: { question: string, answer: string }) {
                         exit={{ height: 0, opacity: 0 }}
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
-                        <div className="px-6 pb-6 pt-0 text-slate-600 leading-relaxed">
+                        <div className="px-6 pb-6 pt-0 text-slate-600 leading-relaxed whitespace-pre-line">
                             {answer}
                         </div>
                     </motion.div>
