@@ -50,7 +50,7 @@ export function AppFeatureShowcase() {
                             <ul className="space-y-4 text-left">
                                 <li className="flex items-center gap-3 text-slate-700">
                                     <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                                    <span>Real-time load and capability matching</span>
+                                    <span>Real-time opportunity and capability matching</span>
                                 </li>
                                 <li className="flex items-center gap-3 text-slate-700">
                                     <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
@@ -69,16 +69,16 @@ export function AppFeatureShowcase() {
                             </div>
                             <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 lg:mb-6">Connect with verified professionals</h3>
                             <p className="text-base lg:text-lg text-slate-600 leading-relaxed mb-6 lg:mb-8">
-                                Review profiles before engaging. Every member is verified against official databases (CDL/DOT), so you can filter out scams and connect with real, qualified people.
+                                DrivLynk’s Trust Engine — combining FMCSA record checks & identy verification during onboarding to ensure you’re connecting with real, qualified professionals.
                             </p>
                             <ul className="space-y-4 text-left">
                                 <li className="flex items-center gap-3 text-slate-700">
                                     <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                                    <span>Direct CDL & DOT verification</span>
+                                    <span>FMCSA verified</span>
                                 </li>
                                 <li className="flex items-center gap-3 text-slate-700">
                                     <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                                    <span>Transparent ratings and reviews</span>
+                                    <span>Identity verified</span>
                                 </li>
                             </ul>
                         </div>
@@ -125,7 +125,7 @@ export function AppFeatureShowcase() {
                                 <Search className="h-4 w-4" />
                                 <span>Power Search</span>
                             </div>
-                            <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 lg:mb-6">Search by role, equipment, <br /> and operation type</h3>
+                            <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 lg:mb-6">Search by role, equipment, <br /> and route type</h3>
                             <p className="text-base lg:text-lg text-slate-600 leading-relaxed mb-6 lg:mb-8">
                                 Find exactly what you need. Filter by specific equipment (Reefer, Flatbed, etc.), operation type (Local, Regional, OTR), and endorsements to find the perfect match in seconds.
                             </p>
@@ -136,7 +136,7 @@ export function AppFeatureShowcase() {
                                 </li>
                                 <li className="flex items-center gap-3 text-slate-700">
                                     <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0" />
-                                    <span>Regional & Home Time preferences</span>
+                                    <span>Filter by role, carrier, driver, dispatcher, or lease-on operator to find the right connections faster.</span>
                                 </li>
                             </ul>
                         </div>
@@ -151,7 +151,7 @@ export function AppFeatureShowcase() {
                             </div>
                             <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 lg:mb-6">Communicate directly inside the platform</h3>
                             <p className="text-base lg:text-lg text-slate-600 leading-relaxed mb-6 lg:mb-8">
-                                No more phone tag or lost emails. Chat directly with verified professionals to discuss rates, schedule interviews, or coordinate loads—all within a secure, privacy-first environment.
+                                No more phone tag, lost emails, or unanswered DMs. Chat directly with verified professionals and schedule meetings to discuss opportunities—all within a secure, privacy-first environment
                             </p>
                             <ul className="space-y-4 text-left">
                                 <li className="flex items-center gap-3 text-slate-700">
