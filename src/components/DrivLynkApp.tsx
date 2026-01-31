@@ -36,7 +36,7 @@ export default function DrivLynkApp() {
                         transition={{ duration: 0.5 }}
                     >
                         <Hero onJoin={handleJoin} />
-                        <WhoWeAre />
+                        {/* <WhoWeAre /> */}
                         <ProblemSolution />
                         <AppFeatureShowcase />
                         <RoleFeatures />

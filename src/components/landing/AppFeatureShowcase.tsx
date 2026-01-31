@@ -69,7 +69,7 @@ export function AppFeatureShowcase() {
                             </div>
                             <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 lg:mb-6">Connect with verified professionals</h3>
                             <p className="text-base lg:text-lg text-slate-600 leading-relaxed mb-6 lg:mb-8">
-                                DrivLynk’s Trust Engine — combining FMCSA record checks & identy verification during onboarding to ensure you’re connecting with real, qualified professionals.
+                                DrivLynk’s Trust Engine combines FMCSA record checks and identity verification during onboarding to ensure you’re connecting with real, qualified professionals.
                             </p>
                             <ul className="space-y-4 text-left">
                                 <li className="flex items-center gap-3 text-slate-700">
@@ -127,7 +127,7 @@ export function AppFeatureShowcase() {
                             </div>
                             <h3 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4 lg:mb-6">Search by role, equipment, <br /> and route type</h3>
                             <p className="text-base lg:text-lg text-slate-600 leading-relaxed mb-6 lg:mb-8">
-                                Find exactly what you need. Filter by specific equipment (Reefer, Flatbed, etc.), operation type (Local, Regional, OTR), and endorsements to find the perfect match in seconds.
+                                Find exactly what you need. Filter by specific equipment (Reefer, Flatbed, etc.), route type (Local, Regional, OTR), and endorsements to find the perfect match in seconds.
                             </p>
                             <ul className="space-y-4 text-left">
                                 <li className="flex items-center gap-3 text-slate-700">
