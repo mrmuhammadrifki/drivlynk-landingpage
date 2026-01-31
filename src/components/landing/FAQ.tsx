@@ -18,10 +18,6 @@ const faqs = [
         answer: "We’re in closed beta and plan to launch publicly in Spring 2026. Join the launch list to get early access."
     },
     {
-        question: "Can I filter for local or regional routes only?",
-        answer: "Absolutely. Our Power Search allows you to filter specifically for Home Daily (Local), Home Weekly (Regional), or OTR. You can also filter by equipment type like Reefer, Flatbed, or Tanker."
-    },
-    {
         question: "What types of logistics vehicles does DrivLynk support?",
         answer: "DrivLynk supports a broad range of equipment used across local, regional, and long-haul freight operations:\n\nBox / Straight Trucks\n• Straight Truck (Dry) — 24–26 ft\n• Reefer Straight Truck — 24–26 ft\n• Cargo Van / Sprinter\n\nTractor / Trailer\n• Dry Van — 48–53 ft\n• Reefer Trailer — 48–53 ft\n• Flatbed — 48–53 ft\n• Step Deck / Drop Deck — 48–53 ft\n• Power Only\n• Tanker\n• Car Hauler\n\nSpecialty Equipment\n• Hotshot (dually pickup with flatbed or gooseneck)"
     }

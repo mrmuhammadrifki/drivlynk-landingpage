@@ -113,7 +113,7 @@ export function Footer() {
 
                 <div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-slate-400 text-xs">
-                        &copy; {new Date().getFullYear()} We are a LLC right now not a corporation
+                        &copy; {new Date().getFullYear()} DrivLynk Technologies, LLC. All rights reserved.
                     </p>
                     <div className="flex gap-6 text-xs text-slate-500">
                         <a href="https://drivlynk-pwa-web-payment.vercel.app/terms" className="hover:text-slate-900">Privacy Policy</a>
