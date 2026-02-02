@@ -215,8 +215,8 @@ export function Hero({ onJoin }: HeroProps) {
                                         className="bg-input-bg border-input-border-default text-input-value"
                                     >
                                         <option value="" disabled>I am a...</option>
-                                        <option value="carrier">Carrier</option>
-                                        <option value="driver">Driver</option>
+                                        <option value="carrier">Carrier Company</option>
+                                        <option value="driver">CompanyDriver</option>
                                         <option value="dispatcher-independent">Independent Dispatcher</option>
                                         <option value="dispatch-agency">Dispatch Agency</option>
                                         <option value="lease-operator-with-truck">Lease-On Operator (With Truck)</option>
