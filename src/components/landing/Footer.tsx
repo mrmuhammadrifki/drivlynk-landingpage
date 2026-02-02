@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone, Instagram, Facebook } from "lucide-react";
 
 export function Footer() {
     return (
@@ -26,6 +26,27 @@ export function Footer() {
                         <p className="text-slate-900 font-semibold text-lg mt-6">
                             DrivLynk Technologies LLC
                         </p>
+
+                        <div className="flex items-center gap-4 mt-4">
+                            <a
+                                href="https://www.instagram.com/drivlynk?igsh=MWl5MTB0bzl2cHE3dA=="
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-brand hover:text-white transition-all duration-300"
+                                aria-label="Follow us on Instagram"
+                            >
+                                <Instagram className="w-5 h-5" />
+                            </a>
+                            <a
+                                href="https://www.facebook.com/share/1GWD631M8C/?mibextid=wwXIfr"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-brand hover:text-white transition-all duration-300"
+                                aria-label="Follow us on Facebook"
+                            >
+                                <Facebook className="w-5 h-5" />
+                            </a>
+                        </div>
                     </div>
 
                     {/* Right: Contact Information */}

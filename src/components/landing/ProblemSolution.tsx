@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { motion } from "framer-motion";
 import { AlertCircle, FileWarning, SearchX, Clock, Ban, CheckCircle2, ShieldCheck, Zap, UserCheck } from "lucide-react";
 
@@ -68,7 +70,7 @@ export function ProblemSolution() {
                             </h2>
                             <p className="text-xl text-text-secondary leading-relaxed max-w-2xl mx-auto">
                                 There’s no true home for trucking professionals to connect. <br />
-                                The issue isn’t the industry — <span className="font-semibold text-text-primary">it’s access.</span>
+                                The issue isn’t the industry <span className="font-semibold text-text-primary">it’s access.</span>
                             </p>
                         </motion.div>
                     </div>
@@ -176,40 +178,16 @@ export function ProblemSolution() {
                         >
                             <div className="absolute -inset-4 bg-gradient-to-tr from-green-200 to-green-50 rounded-[2.5rem] blur-3xl opacity-60" />
                             {/* Placeholder for a solution graphic */}
-                            <div className="relative bg-white rounded-[2.5rem] shadow-[0px_4px_48px_0px_#161A1733] p-6 md:p-8 border border-slate-100 aspect-square flex flex-col justify-center items-center overflow-hidden">
-                                <div className="absolute top-0 w-full h-full bg-[url('/assets/grid.svg')] opacity-[0.03]"></div>
-
-                                <div className="w-full max-w-sm space-y-4 relative z-10">
-                                    {/* Mock UI Elements */}
-                                    <div className="flex items-center justify-between bg-white p-4 rounded-xl shadow-lg border border-slate-100 mb-6 animate-pulse-slow">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold">JD</div>
-                                            <div>
-                                                <div className="h-2.5 w-24 bg-slate-200 rounded mb-1.5" />
-                                                <div className="h-2 w-16 bg-green-100 rounded text-xs text-green-700 px-1">Verified</div>
-                                            </div>
-                                        </div>
-                                        <div className="h-8 w-20 bg-green-600 rounded-lg" />
-                                    </div>
-
-                                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
-                                        <div className="flex justify-between items-center mb-3">
-                                            <div className="h-2.5 w-32 bg-slate-300 rounded" />
-                                            <div className="h-2.5 w-12 bg-slate-200 rounded" />
-                                        </div>
-                                        <div className="h-2 w-full bg-slate-200 rounded mb-2" />
-                                        <div className="h-2 w-3/4 bg-slate-200 rounded" />
-                                    </div>
-
-                                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 opacity-60">
-                                        <div className="flex justify-between items-center mb-3">
-                                            <div className="h-2.5 w-28 bg-slate-300 rounded" />
-                                            <div className="h-2.5 w-12 bg-slate-200 rounded" />
-                                        </div>
-                                        <div className="h-2 w-full bg-slate-200 rounded mb-2" />
-                                        <div className="h-2 w-2/3 bg-slate-200 rounded" />
-                                    </div>
-                                </div>
+                            {/* Visualization Image */}
+                            <div className="relative z-10 w-full flex justify-center items-center">
+                                <Image
+                                    src="/assets/solution-visual.png"
+                                    alt="DrivLynk Solution Visualization"
+                                    width={800}
+                                    height={800}
+                                    className="w-full h-auto object-contain drop-shadow-2xl rounded-3xl hover:scale-105 transition-transform duration-700"
+                                    priority
+                                />
                             </div>
                         </motion.div>
                     </div>
