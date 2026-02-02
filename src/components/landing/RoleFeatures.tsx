@@ -41,7 +41,7 @@ const features = {
         headline: "Find the Right Program",
         description: "Identify real lease-on opportunities and understand requirements before you commit.",
         points: ["Identify real opportunities", "Connect with carriers", "Understand requirements", "Compare programs"],
-        image: "/assets/role-driver.png" // Using driver image as placeholder or reuse if appropriate, ideally create specific asset
+        image: "/assets/role-owner.png" // Using driver image as placeholder or reuse if appropriate, ideally create specific asset
     }
 };
 
