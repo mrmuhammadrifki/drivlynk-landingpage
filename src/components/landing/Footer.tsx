@@ -58,7 +58,7 @@ export function Footer() {
                                         href="mailto:admin@drivlynktechnologies.com"
                                         className="text-slate-900 font-medium hover:text-brand transition-colors"
                                     >
-                                        admin@drivlynktechnologies.com
+                                        support@Drivlynk.com
                                     </a>
                                 </div>
                             </div>
