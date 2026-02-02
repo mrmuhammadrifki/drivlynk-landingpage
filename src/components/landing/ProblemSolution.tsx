@@ -52,7 +52,7 @@ export function ProblemSolution() {
     ];
 
     return (
-        <div className="bg-slate-50">
+        <div id="about" className="bg-slate-50">
             {/* NEW SECTION — PROBLEM */}
             <section className="py-20 md:py-28 relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10">
