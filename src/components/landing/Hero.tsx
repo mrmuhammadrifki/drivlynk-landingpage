@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Select } from "@/components/ui/Select";
@@ -23,6 +24,7 @@ export function Hero({ onJoin }: HeroProps) {
     const [phone, setPhone] = useState("");
     const [role, setRole] = useState("");
     const [isLoading, setIsLoading] = useState(false);
+    const { executeRecaptcha } = useGoogleReCaptcha();
 
     // Toast state
     const [toast, setToast] = useState<{
@@ -61,15 +63,22 @@ export function Hero({ onJoin }: HeroProps) {
             showToast("Please select your role", "error");
             return;
         }
+        if (!executeRecaptcha) {
+            showToast("Captcha not ready", "error");
+            return;
+        }
 
         setIsLoading(true);
 
         try {
+            const token = await executeRecaptcha("join_waitlist");
+
             const response = await waitlistService.joinWaitlist({
                 name: name.trim(),
                 email: email.trim(),
                 phone_number: phone.trim() || "",
                 role: role,
+                recaptcha_token: token,
             });
 
             if (response.success) {
@@ -78,7 +87,6 @@ export function Hero({ onJoin }: HeroProps) {
                     "success"
                 );
 
-                // Reset form
                 setName("");
                 setEmail("");
                 setPhone("");

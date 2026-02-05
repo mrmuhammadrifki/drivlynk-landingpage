@@ -4,6 +4,7 @@ export interface WaitlistRequest {
     email: string;
     phone_number: string;
     role: string;
+    recaptcha_token?: string;
 }
 
 export interface WaitlistResponse {
