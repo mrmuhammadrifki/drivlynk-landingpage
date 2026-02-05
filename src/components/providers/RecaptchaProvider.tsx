@@ -7,12 +7,15 @@ interface RecaptchaProviderProps {
 }
 
 export function RecaptchaProvider({ children }: RecaptchaProviderProps) {
-    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    // Fallback to hardcoded key if env var fails
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LfyJWEsAAAAAB9kMaQrElCmIqh_e3MxrQw0bWB-";
 
     if (!siteKey) {
         console.warn("Recaptcha site key is missing");
         return <>{children}</>;
     }
+
+    console.log("Recaptcha initialized with key length:", siteKey.length);
 
     return (
         <GoogleReCaptchaProvider
