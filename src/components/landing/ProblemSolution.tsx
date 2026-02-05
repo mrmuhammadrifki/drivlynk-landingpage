@@ -24,12 +24,12 @@ export function ProblemSolution() {
         },
         {
             title: "Unqualified people reach out constantly",
-            description: "",
+            description: "Anyone can reach out, even if they don’t meet the requirements. You end up dealing with people who don’t have the experience, equipment, or readiness to move forward.",
             icon: Ban
         },
         {
             title: "Trucks sit when they should be moving",
-            description: "",
+            description: "When it takes too long to find the right people, trucks stay parked longer than planned, and the longer they sit, the more revenue gets missed.",
             icon: AlertCircle
         }
     ];
