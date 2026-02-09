@@ -63,7 +63,7 @@ export function Footer() {
                                 </div>
                                 <div>
                                     <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">ADDRESS</p>
-                                    <p className="text-slate-900 font-medium">30 N Gould St Ste N</p>
+                                    <p className="text-slate-900 font-medium">30 N Gould St #57857</p>
                                     <p className="text-slate-900 font-medium">Sheridan, WY 82801, United States</p>
                                 </div>
                             </div>
